@@ -88,28 +88,28 @@ impl Default for ChannelSettingsManager {
         Self {
             settings: vec![
                 ChannelSettings::new("Channel 1", &[
-                    Color::new(0xFF, 0xFF, 0xA0, 0xA0)
+                    Color::new(0xFF, 0xFE, 0x3F, 0x2D)
                 ]),
                 ChannelSettings::new("Channel 2", &[
-                    Color::new(0xFF, 0xFF, 0xE0, 0xA0)
+                    Color::new(0xFF, 0xFF, 0xEB, 0x34)
                 ]),
                 ChannelSettings::new("Channel 3", &[
-                    Color::new(0xFF, 0x40, 0xFF, 0x40)
+                    Color::new(0xFF, 0x92, 0xDB, 0x00)
                 ]),
                 ChannelSettings::new("Channel 4", &[
-                    Color::new(0xFF, 0xC0, 0xC0, 0xC0)
+                    Color::new(0xFF, 0xC0, 0xC0, 0xD8)
                 ]),
                 ChannelSettings::new("Channel 5", &[
-                    Color::new(0xFF, 0x9A, 0x4F, 0xFF)
+                    Color::new(0xFF, 0xEB, 0x33, 0xFF)
                 ]),
                 ChannelSettings::new("Channel 6", &[
-                    Color::new(0xFF, 0x38, 0xAB, 0xF2)
+                    Color::new(0xFF, 0x2C, 0xA6, 0xFF)
                 ]),
                 ChannelSettings::new("Channel 7", &[
-                    Color::new(0xFF, 0xAC, 0xED, 0x32)
+                    Color::new(0xFF, 0xFF, 0x9E, 0x00)
                 ]),
                 ChannelSettings::new("Channel 8", &[
-                    Color::new(0xFF, 0x24, 0x7B, 0xA0)
+                    Color::new(0xFF, 0x16, 0xC3, 0x97)
                 ])
             ]
         }

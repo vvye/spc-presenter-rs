@@ -16,8 +16,8 @@ spc = { path = "external/spc" }
 raqote = { version = "0.8", default-features = false }
 image = "0.24"
 ringbuf = "0.3.3"
-ffmpeg-next = "6.0"
-ffmpeg-sys-next = "6.0"
+ffmpeg-next = "6.1"
+ffmpeg-sys-next = "6.1"
 clap = "4.3.1"
 encoding_rs = "0.8.32"
 indicatif = "0.17.5"

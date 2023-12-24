@@ -14,7 +14,7 @@ fn fast_background_blit(fg: &mut frame::Video, bg: &frame::Video) {
     for (fg_arr, bg_arr) in zip(fg.plane_mut::<[u8; 4]>(0).iter_mut(), bg.plane::<[u8; 4]>(0).iter()) {
         let fg_color = u32::from_le_bytes(*fg_arr) & (RB_MASK | G_MASK);
 
-        let pre_blit_bg_arr = [bg_arr[0] / 2, bg_arr[1] / 2, bg_arr[2] / 2, 255];
+        let pre_blit_bg_arr = [bg_arr[0], bg_arr[1], bg_arr[2], 255];
         let bg_color = u32::from_le_bytes(pre_blit_bg_arr) & (RB_MASK | G_MASK);
 
         let mut rb = bg_color & RB_MASK;

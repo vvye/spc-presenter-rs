@@ -125,8 +125,8 @@ impl Visualizer {
 
         let padding = (self.font.tile_h() as f32) / 2.0;
         let name_width = (self.font.tile_w() * settings.name().len()) as f32;
-        self.font.draw_text(&mut self.canvas, "S-DSP", x + padding, y + padding, 0.2);
-        self.font.draw_text(&mut self.canvas, &settings.name(), x + w - name_width - padding, y + h - 3.0 * padding, 0.2);
+        self.font.draw_text(&mut self.canvas, "S-DSP", x + padding, y + padding, 1.0);
+        self.font.draw_text(&mut self.canvas, &settings.name(), x + w - name_width - padding, y + h - 3.0 * padding, 1.0);
 
         let glow_color = Color::new(0x40, color.r(), color.g(), color.b());
         let glow_source = Source::Solid(SolidSource::from(glow_color));
@@ -179,7 +179,7 @@ impl Visualizer {
 
     pub fn draw_oscilloscopes(&mut self) {
         for channel in 0..8 {
-            self.draw_oscilloscope_view(channel, 120.0 * channel as f32, 0.0, 120.0, 48.0);
+            self.draw_oscilloscope_view(channel, 120.0 * channel as f32, 540.0 - 48.0, 120.0, 48.0);
         }
     }
 }

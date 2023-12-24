@@ -4,8 +4,8 @@ use crate::visualizer::ChannelState;
 use super::Visualizer;
 
 const KEY_COUNT: usize = 108;
-const KEY_THICKNESS: f32 = 5.0;
-const KEY_HEIGHT: f32 = 24.0;
+const KEY_THICKNESS: f32 = 8.5;
+const KEY_HEIGHT: f32 = 72.0;
 
 #[derive(Copy, Clone, PartialEq)]
 enum PianoKey {
@@ -36,7 +36,7 @@ impl Visualizer {
         let key_source = match (color, key) {
             (Some(color), _) => Source::Solid(SolidSource::from(color)),
             (None, PianoKey::Black) => Source::Solid(SolidSource::from_unpremultiplied_argb(0xff, 0x00, 0x00, 0x00)),
-            (None, _) => Source::Solid(SolidSource::from_unpremultiplied_argb(0xff, 0x20, 0x20, 0x20))
+            (None, _) => Source::Solid(SolidSource::from_unpremultiplied_argb(0xff, 0xff, 0xff, 0xff))
         };
 
         let draw_options = DrawOptions {
@@ -198,11 +198,11 @@ impl Visualizer {
 
             if outline {
                 self.canvas.fill_rect(
-                    slice_x - (KEY_THICKNESS / 2.0),
+                    slice_x - 1.0,
                     slice_y - 1.0,
-                    slice_w + KEY_THICKNESS,
+                    slice_w + 2.0,
                     3.0,
-                    &Source::from(Color::new(0xFF, 0, 0, 0)),
+                    &Source::from(Color::new(0x80, 0, 0, 0)),
                     &DrawOptions::default()
                 );
             } else {
@@ -219,8 +219,8 @@ impl Visualizer {
     }
 
     pub fn draw_piano_roll(&mut self) {
-        let slices_y = 48.0 + KEY_HEIGHT;
-        let slices_h = 540.0 - slices_y;
+        let slices_y = 0.0;
+        let slices_h = 540.0 - KEY_HEIGHT - 48.0;
 
         let mut state_slices: Vec<ChannelState> = Vec::new();
         for channel in 0..8 {
@@ -238,9 +238,9 @@ impl Visualizer {
         self.draw_channel_slices(0.0, slices_y, 960.0, slices_h, KEY_THICKNESS, true);
         self.draw_channel_slices(0.0, slices_y, 960.0, slices_h, KEY_THICKNESS, false);
 
-        self.draw_piano_keys(0.0, 48.0, 960.0, KEY_HEIGHT, KEY_THICKNESS);
+        self.draw_piano_keys(0.0, 540.0 - KEY_HEIGHT - 48.0, 960.0, KEY_HEIGHT, KEY_THICKNESS);
         for channel in 0..8 {
-            self.draw_channel_key_spot(channel, 0.0, 48.0, 960.0, KEY_HEIGHT, KEY_THICKNESS);
+            self.draw_channel_key_spot(channel, 0.0, 540.0 - KEY_HEIGHT - 48.0, 960.0, KEY_HEIGHT, KEY_THICKNESS);
         }
     }
 }
